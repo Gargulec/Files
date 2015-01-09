@@ -1,0 +1,6 @@
+type: barrel
+name: Rusty Barrel
+desc: A standard rusty barrel.
+cost: 20
+difficulty: 10
+triggerAttach: 0, 15

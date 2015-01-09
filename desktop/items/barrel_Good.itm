@@ -1,0 +1,6 @@
+type: barrel
+name: Good Barrel
+desc: A good barrel.
+cost: 200
+difficulty: 20
+triggerAttach: 0, 30

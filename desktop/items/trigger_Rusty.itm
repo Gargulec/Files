@@ -1,0 +1,10 @@
+type: trigger
+name: Rusty Trigger
+desc: A standard rusty trigger.
+cost: 20
+difficulty: 10
+barrelAttach: 20, 13
+stockAllowed: false
+stockAttach: 0, 0
+sightAllowed: false
+sightAttach: 0, 0

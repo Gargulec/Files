@@ -1,0 +1,6 @@
+type: barrel
+name: Long Barrel
+desc: A standard long barrel.
+cost: 40
+difficulty: 10
+triggerAttach: 0, 30
