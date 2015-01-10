@@ -6,6 +6,7 @@ import me.GUI.Component.StudiumComponent;
 import me.GUI.Component.StudiumTextField;
 import me.GUI.Screen.StudiumScreen;
 import me.Guns.Main;
+import me.Guns.Screen.CreateScreen;
 import me.Guns.Window.FactoryOption;
 
 public class PrototypeName extends StudiumTextField{
@@ -15,17 +16,19 @@ public class PrototypeName extends StudiumTextField{
 	{
 		super(x, y, 200, 26, parent);
 		
+		setText("New");
 		//Font
 		setFont(Main.fontSmall);
 		//Text offset
 		setTextOffset(new Vector2(5, 22));
 		//Char limit
-		setCharLimit(16);
+		setCharLimit(12);
 	}
 
 	//Text change
 	public void textTyped() 
 	{
+		CreateScreen.prototype.setName(getText());
 	}
 	
 }

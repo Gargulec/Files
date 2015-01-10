@@ -15,14 +15,12 @@ public class ResearchScreen extends StudiumScreen{
 	public void update()
 	{
 		bgImg = new Texture(Gdx.files.internal("graphics/background2.png"));
-		//Labels
-		add(new StudiumLabel(100, Gdx.graphics.getHeight() - 126, null, "Research new technologies", Color.WHITE, Main.fontSmall));
 	}
 	
 	//Creating buttons
 	public void createButtons()
 	{
-		add(new GunsButtonGoTo(100, 100, "Back", null, Main.complex));
+		add(new GunsButtonGoTo(80, 80, "Back", null, Main.complex));
 	}
 	
 	//Draw

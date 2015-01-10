@@ -12,6 +12,9 @@ import me.Guns.GunPart.Trigger;
 
 public class Prototype {
 
+	//Name
+	private String name = "New";
+	
 	//Stock
 	private int stock = -1;
 	//Trigger
@@ -92,6 +95,7 @@ public class Prototype {
 	public Prototype copy()
 	{
 		Prototype p = new Prototype();
+		p.setName(getName());
 		p.setBarrel(this.barrel);
 		p.setTrigger(this.trigger);
 		p.setStock(this.stock);
@@ -173,6 +177,14 @@ public class Prototype {
 			difficulty += getSight().getDifficulty();
 		
 		return difficulty;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

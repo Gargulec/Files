@@ -10,6 +10,8 @@ import me.GUI.Component.StudiumLabel;
 import me.GUI.Screen.StudiumScreen;
 import me.Guns.Game;
 import me.Guns.Main;
+import me.Guns.Button.DeletePrototype;
+import me.Guns.Button.EditPrototype;
 import me.Guns.Button.GunsButtonGoTo;
 import me.Guns.Button.NextPart;
 import me.Guns.Prototype.Prototype;
@@ -23,14 +25,32 @@ public class PrototypesListScreen extends StudiumScreen{
 	public PrototypesListScreen()
 	{
 		bgImg = new Texture(Gdx.files.internal("graphics/background2.png"));
-		//Labels
-		add(new StudiumLabel(100, Gdx.graphics.getHeight() - 126, null, "List of your guns", Color.WHITE, Main.fontSmall));
+	}
+	
+	//Opened
+	public void show() 
+	{
+		reload();
 	}
 	
 	//Creating buttons
-	public void createButtons()
+	public void reload()
 	{
-		add(new GunsButtonGoTo(100, 100, "Back to Complex Screen", null, Main.complex));
+		removeAllComponents();
+		//Labels
+		add(new StudiumLabel(80, Gdx.graphics.getHeight() - 75, null, "Name", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(500, Gdx.graphics.getHeight() - 75, null, "Amount", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(280, Gdx.graphics.getHeight() - 75, null, "Look", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		//Buttons
+		add(new GunsButtonGoTo(80, 80, "Back", null, Main.complex));
+		
+		int offset = 0;
+		for(Prototype p : Game.prototypes)
+		{
+			add(new EditPrototype(630, Gdx.graphics.getHeight() - 95 - offset, null, p));
+			add(new DeletePrototype(630, Gdx.graphics.getHeight() - 115 - offset, null, p));
+			offset += 50;
+		}
 	}
 	
 	//Game update
@@ -48,10 +68,12 @@ public class PrototypesListScreen extends StudiumScreen{
 		int offset = 0;
 		for(Prototype p : Game.prototypes)
 		{
-			//Weapon name & amount
-			Main.fontSmall.draw(batch, "Prototype123 x " + p.getAmount(), 100, Gdx.graphics.getHeight() - 160 - offset);
+			//Weapon name
+			Main.fontSmall.draw(batch, p.getName(), 80, Gdx.graphics.getHeight() - 105 - offset);
+			//Weapon amount
+			Main.fontSmall.draw(batch, "" + p.getAmount(), 500, Gdx.graphics.getHeight() - 105 - offset);
 			//Weapon look
-			p.draw(batch, 350, Gdx.graphics.getHeight() - 160 - offset);
+			p.draw(batch, 260, Gdx.graphics.getHeight() - 115 - offset - 15);
 			offset += 50;
 		}
 	}

@@ -64,7 +64,6 @@ public class Main extends Game {
 		complex = new ComplexScreen();
 		assign = new AssignScreen();
 		create.createButtons();
-		prototypes.createButtons();
 		research.createButtons();
 		stats.createButtons();
 		complex.createButtons();
