@@ -22,11 +22,12 @@ public class ComplexScreen extends StudiumScreen{
 	//Creating buttons
 	public void createButtons()
 	{
-		add(new GunsButtonGoTo(100, 300, "Create new gun", null, Main.create));
-		add(new GunsButtonGoTo(100, 250, "Produce", null, Main.produce));
-		add(new GunsButtonGoTo(100, 200, "Prototypes list", null, Main.prototypes));
-		add(new GunsButtonGoTo(100, 150, "Research", null, Main.research));
-		add(new GunsButtonGoTo(100, 100, "Stats", null, Main.stats));
+		add(new GunsButtonGoTo(100, 350, "Create new gun", null, Main.create));
+		add(new GunsButtonGoTo(100, 300, "Produce", null, Main.produce));
+		add(new GunsButtonGoTo(100, 250, "Prototypes list", null, Main.prototypes));
+		add(new GunsButtonGoTo(100, 200, "Research", null, Main.research));
+		add(new GunsButtonGoTo(100, 150, "Stats", null, Main.stats));
+		add(new GunsButtonGoTo(100, 100, "Map", null, Main.map));
 	}
 	
 	//Draw

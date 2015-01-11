@@ -8,8 +8,11 @@ import me.Guns.Screen.AssignScreen;
 import me.Guns.Screen.ComplexScreen;
 import me.Guns.Screen.CreateScreen;
 import me.Guns.Screen.MainMenu;
+import me.Guns.Screen.MapScreen;
+import me.Guns.Screen.MessageScreen;
 import me.Guns.Screen.ProduceScreen;
 import me.Guns.Screen.PrototypesListScreen;
+import me.Guns.Screen.RatingScreen;
 import me.Guns.Screen.ResearchScreen;
 import me.Guns.Screen.StatsScreen;
 import me.Guns.Window.StatsWindow;
@@ -36,6 +39,9 @@ public class Main extends Game {
 	public static ResearchScreen research;
 	public static StatsScreen stats;
 	public static AssignScreen assign;
+	public static MapScreen map;
+	public static MessageScreen message;
+	public static RatingScreen rating;
 	/****/
 	
 	//Fonts
@@ -63,10 +69,16 @@ public class Main extends Game {
 		stats = new StatsScreen();
 		complex = new ComplexScreen();
 		assign = new AssignScreen();
+		map = new MapScreen();
+		message = new MessageScreen();
+		rating = new RatingScreen();
 		create.createButtons();
 		research.createButtons();
 		stats.createButtons();
 		complex.createButtons();
+		map.createButtons();
+		message.createButtons();
+		rating.createButtons();
 		
 		/**TESTS ONLY**/
 		me.Guns.Game.factories.add(new Factory());
