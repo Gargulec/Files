@@ -7,12 +7,13 @@ import me.Guns.Main;
 import me.Guns.Factory.Factory;
 import me.Guns.Screen.AssignScreen;
 import me.Guns.Screen.CreateScreen;
+import me.Guns.Screen.MapScreen;
 import me.Guns.Screen.ProduceScreen;
 
-public class ProductionAssign extends GunsButton{
+public class ExportAssign extends GunsButton{
 	
 	//Constructor
-	public ProductionAssign(float x, float y, StudiumComponent parent) 
+	public ExportAssign(float x, float y, StudiumComponent parent) 
 	{
 		super(x, y, "Assign", parent);
 	}
@@ -20,8 +21,8 @@ public class ProductionAssign extends GunsButton{
 	//Clicked
 	public void leftClick()
 	{
-		AssignScreen.country = null;
-		AssignScreen.factory = ProduceScreen.factoryOption.factory;
+		AssignScreen.factory = null;
+		AssignScreen.country = MapScreen.countryView.country; 
 		StudiumScreen.change(Main.main, Main.assign);
 	}
 

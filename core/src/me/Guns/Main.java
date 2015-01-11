@@ -2,6 +2,7 @@ package me.Guns;
 
 import me.GUI.Component.StudiumLabel;
 import me.GUI.Screen.StudiumScreen;
+import me.Guns.Country.Country;
 import me.Guns.Factory.Factory;
 import me.Guns.Files.Load;
 import me.Guns.Screen.AssignScreen;
@@ -29,6 +30,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class Main extends Game {
 
 	public static Main main;
+	public static me.Guns.Game game;
 	
 	/**Game Screens**/
 	public static MainMenu menu;
@@ -80,9 +82,15 @@ public class Main extends Game {
 		message.createButtons();
 		rating.createButtons();
 		
+		game = new me.Guns.Game();
+		
 		/**TESTS ONLY**/
 		me.Guns.Game.factories.add(new Factory());
 		me.Guns.Game.factories.add(new Factory());
+		
+		me.Guns.Game.countries.add(new Country("Poland", 40000000));
+		me.Guns.Game.countries.add(new Country("Germany", 3000));
+		me.Guns.Game.countries.add(new Country("France", 2400));
 		/****/
 		
 		//Static windows
@@ -96,14 +104,9 @@ public class Main extends Game {
 	public void render() 
 	{
 		super.render();
-		timer += Gdx.graphics.getDeltaTime();
-		if(timer >= 2)
-		{
-			for(Factory f : me.Guns.Game.factories)
-				f.produce();
 		
-			timer = 0;
-		}
+		//Game loop
+		game.gameLoop();
 	}
 	
 }

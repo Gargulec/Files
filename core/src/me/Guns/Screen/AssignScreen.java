@@ -10,12 +10,14 @@ import me.GUI.Component.StudiumLabel;
 import me.GUI.Screen.StudiumScreen;
 import me.Guns.Game;
 import me.Guns.Main;
+import me.Guns.Button.ChooseCountry;
 import me.Guns.Button.ChooseWeapon;
 import me.Guns.Button.DeletePrototype;
 import me.Guns.Button.EditPrototype;
 import me.Guns.Button.GunsButtonGoTo;
 import me.Guns.Button.ProductionAssign;
 import me.Guns.Button.NextPart;
+import me.Guns.Country.Country;
 import me.Guns.Factory.Factory;
 import me.Guns.Prototype.Prototype;
 
@@ -23,6 +25,8 @@ public class AssignScreen extends StudiumScreen{
 
 	//Choosen factory
 	public static Factory factory;
+	//Choosen country
+	public static Country country;
 	
 	//Constructor
 	public AssignScreen()
@@ -50,7 +54,10 @@ public class AssignScreen extends StudiumScreen{
 		int offset = 0;
 		for(Prototype p : Game.prototypes)
 		{
-			add(new ChooseWeapon(630, Gdx.graphics.getHeight() - 105 - offset, null, p));
+			if(factory != null)
+				add(new ChooseWeapon(630, Gdx.graphics.getHeight() - 105 - offset, null, p));
+			else
+				add(new ChooseCountry(630, Gdx.graphics.getHeight() - 105 - offset, null, p));
 			offset += 50;
 		}
 	}

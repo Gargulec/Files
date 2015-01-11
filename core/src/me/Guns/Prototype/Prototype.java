@@ -14,6 +14,8 @@ public class Prototype {
 
 	//Name
 	private String name = "New";
+	//Price
+	private int price = 600;
 	
 	//Stock
 	private int stock = -1;
@@ -179,13 +181,22 @@ public class Prototype {
 		return difficulty;
 	}
 
-	public String getName() {
+	public String getName() 
+	{
 		return name;
 	}
-
-	public void setName(String name) {
+	public void setName(String name)
+	{
 		this.name = name;
 	}
-	
+
+	public int getPrice() 
+	{
+		return price;
+	}
+	public void setPrice(int price) 
+	{
+		this.price = price;
+	}
 	
 }
