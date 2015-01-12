@@ -55,9 +55,17 @@ public class Country {
 			/**Selling guns**/
 			double selledGuns = 0;
 			if(getExportAmount() > 0)
-				selledGuns = Math.floor(getExportAmount() * getInterest());
+			{
+				if(getExportedWeapon().getAmount() >= getExportAmount())
+					selledGuns = Math.floor(getExportAmount() * getInterest());
+			}
 			else if(getAmount() > 0)
+			{
 				selledGuns = Math.floor(getAmount() * getInterest());
+				if(getAmount() == 1)
+					selledGuns = 1;
+			}	
+			
 			//Calculating profit
 			int profit = (int)selledGuns * getExportedWeapon().getPrice();
 			me.Guns.Game.money += profit;
