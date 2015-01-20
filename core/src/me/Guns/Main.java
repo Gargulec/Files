@@ -3,8 +3,10 @@ package me.Guns;
 import me.GUI.Component.StudiumLabel;
 import me.GUI.Screen.StudiumScreen;
 import me.Guns.Country.Country;
+import me.Guns.Event.TerroristAttack;
 import me.Guns.Factory.Factory;
 import me.Guns.Files.Load;
+import me.Guns.Message.Message;
 import me.Guns.Screen.AssignScreen;
 import me.Guns.Screen.ComplexScreen;
 import me.Guns.Screen.CreateScreen;
@@ -91,6 +93,11 @@ public class Main extends Game {
 		me.Guns.Game.countries.add(new Country("Poland", 40000000));
 		me.Guns.Game.countries.add(new Country("Germany", 3000));
 		me.Guns.Game.countries.add(new Country("France", 2400));
+		
+		me.Guns.Game.events.add(new TerroristAttack());
+		
+		me.Guns.Game.messages.add(new Message("Attack!", new String[2], false));
+		me.Guns.Game.messages.add(new Message("New propositon!", new String[2], true));
 		/****/
 		
 		//Static windows

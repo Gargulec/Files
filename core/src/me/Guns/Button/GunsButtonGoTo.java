@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import me.GUI.Component.StudiumButton;
 import me.GUI.Component.StudiumButtonGoTo;
 import me.GUI.Component.StudiumComponent;
 import me.GUI.Screen.StudiumScreen;
@@ -12,7 +11,7 @@ import me.Guns.Main;
 import me.Guns.Screen.ProduceScreen;
 
 public class GunsButtonGoTo extends StudiumButtonGoTo{
-
+	
 	//Title
 	private String title;
 	

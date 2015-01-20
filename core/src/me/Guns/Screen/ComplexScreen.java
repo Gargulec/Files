@@ -9,6 +9,7 @@ import me.GUI.Screen.StudiumScreen;
 import me.Guns.Game;
 import me.Guns.Main;
 import me.Guns.Button.GunsButtonGoTo;
+import me.Guns.Message.Message;
 import me.Guns.TextField.FactoryName;
 
 public class ComplexScreen extends StudiumScreen{
@@ -35,6 +36,15 @@ public class ComplexScreen extends StudiumScreen{
 	{
 		//Drawing components
 		super.draw();
+		
+		//Drawing messages
+		Message.drawMessages(Gdx.graphics.getWidth() - 200, 0, batch);
 	}
 	
+	
+	//Clicked
+	public void screenClicked(int button) 
+	{
+		Message.checkMessages(Gdx.graphics.getWidth() - 200, 0, button);
+	}
 }

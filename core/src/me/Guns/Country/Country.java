@@ -1,5 +1,7 @@
 package me.Guns.Country;
 
+import java.util.Random;
+
 import me.Guns.Prototype.Prototype;
 
 import com.badlogic.gdx.Game;
@@ -23,6 +25,9 @@ public class Country {
 	//Military power
 	private int power;
 	
+	//Buying madness
+	private int buyingMadness;
+	
 	//Exported weapon
 	private Prototype exportedWeapon;
 	private int amount;
@@ -33,6 +38,22 @@ public class Country {
 	{
 		setName(name);
 		setPopulation(population);
+	}
+	
+	//Update
+	public void update()
+	{
+		Random r = new Random();
+		//Counting interest
+		if(buyingMadness <= 0)
+		{
+			float interest = r.nextInt(5)/100f;
+			setInterest(getInterest() - interest);
+			if(getInterest() < 0)
+				setInterest(0);
+		}
+		else
+			buyingMadness--;
 	}
 	
 	//Selling guns
@@ -180,6 +201,15 @@ public class Country {
 	public void setExportAmount(int exportAmount)
 	{
 		this.exportAmount = exportAmount;
+	}
+
+	public int getBuyingMadness()
+	{
+		return buyingMadness;
+	}
+	public void setBuyingMadness(int buyingMadness) 
+	{
+		this.buyingMadness = buyingMadness;
 	}
 	
 }

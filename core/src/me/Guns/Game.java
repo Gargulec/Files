@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import com.badlogic.gdx.Gdx;
 
 import me.Guns.Country.Country;
+import me.Guns.Event.Event;
 import me.Guns.Factory.Factory;
 import me.Guns.GunPart.Barrel;
 import me.Guns.GunPart.Sight;
 import me.Guns.GunPart.Silencer;
 import me.Guns.GunPart.Stock;
 import me.Guns.GunPart.Trigger;
+import me.Guns.Message.Message;
 import me.Guns.Prototype.Prototype;
 
 public class Game {
@@ -27,6 +29,10 @@ public class Game {
 	//List of countries
 	public static ArrayList<Country> countries = new ArrayList<Country>();
 	
+	//List of events
+	public static ArrayList<Event> events = new ArrayList<Event>();
+	
+	
 	/**In-game item lists**/
 	//Trigger list
 	public static ArrayList<Trigger> triggers = new ArrayList<Trigger>();
@@ -39,6 +45,9 @@ public class Game {
 	//Silencers list
 	public static ArrayList<Silencer> silencers = new ArrayList<Silencer>();
 	
+	//List of messages
+	public static ArrayList<Message> messages = new ArrayList<Message>();
+	
 	/**Game loop**/
 	public float timer;
 	public void gameLoop()
@@ -47,12 +56,17 @@ public class Game {
 		
 		if(timer >= 2.0)
 		{
+			//Generating events
+			Event.newEvent();
 			//Factory production
 			for(Factory f : factories)
 				f.produce();
 			//Selling
 			for(Country c : countries)
 				c.sell();
+			//Updating
+			for(Country c : countries)
+				c.update();
 			
 			timer = 0;
 		}
