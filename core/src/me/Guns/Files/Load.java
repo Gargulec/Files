@@ -2,11 +2,14 @@ package me.Guns.Files;
 
 import java.util.ArrayList;
 
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
 import me.Guns.Game;
 import me.Guns.GunPart.Barrel;
 import me.Guns.GunPart.Sight;
 import me.Guns.GunPart.Stock;
 import me.Guns.GunPart.Trigger;
+import me.Guns.Technology.Technology;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -18,7 +21,7 @@ public class Load {
 	//Loading items
 	public static void loadStandardItems()
 	{
-		FileHandle[] files = Gdx.files.local("items").list();
+		FileHandle[] files = Gdx.files.local("res/items").list();
 		ArrayList<FileHandle> items = new ArrayList<FileHandle>();
 		
 		for(FileHandle f : files)
@@ -39,7 +42,7 @@ public class Load {
 			
 			if(type.equalsIgnoreCase("trigger"))
 			{
-				Trigger t = new Trigger(name, null, cost, difficulty, new Texture(Gdx.files.local("items/" + f.nameWithoutExtension() + ".png")));
+				Trigger t = new Trigger(name, null, cost, difficulty, new Texture(Gdx.files.local("res/items/" + f.nameWithoutExtension() + ".png")));
 				//Barrel attach
 				String b = value("barrelAttach", f).replaceAll("\\s", "");
 				Vector2 barrelAttach = new Vector2(Integer.parseInt(b.split(",")[0]), Integer.parseInt(b.split(",")[1]));
@@ -67,25 +70,62 @@ public class Load {
 			{
 				String t = value("triggerAttach", f).replaceAll("\\s", "");
 				Vector2 triggerAttach = new Vector2(Integer.parseInt(t.split(",")[0]), Integer.parseInt(t.split(",")[1]));
-				Barrel b = new Barrel(name, null, cost, difficulty, new Texture(Gdx.files.local("items/" + f.nameWithoutExtension() + ".png")));
+				Barrel b = new Barrel(name, null, cost, difficulty, new Texture(Gdx.files.local("res/items/" + f.nameWithoutExtension() + ".png")));
 				b.setTriggerAttach(triggerAttach);
 			}
 			else if(type.equalsIgnoreCase("stock"))
 			{
 				String t = value("triggerAttach", f).replaceAll("\\s", "");
 				Vector2 triggerAttach = new Vector2(Integer.parseInt(t.split(",")[0]), Integer.parseInt(t.split(",")[1]));
-				Stock s = new Stock(name, null, cost, difficulty, new Texture(Gdx.files.local("items/" + f.nameWithoutExtension() + ".png")));
+				Stock s = new Stock(name, null, cost, difficulty, new Texture(Gdx.files.local("res/items/" + f.nameWithoutExtension() + ".png")));
 				s.setTriggerAttach(triggerAttach);
 			}
 			else if(type.equalsIgnoreCase("sight"))
 			{
 				String t = value("triggerAttach", f).replaceAll("\\s", "");
 				Vector2 triggerAttach = new Vector2(Integer.parseInt(t.split(",")[0]), Integer.parseInt(t.split(",")[1]));
-				Sight s = new Sight(name, null, cost, difficulty, new Texture(Gdx.files.local("items/" + f.nameWithoutExtension() + ".png")));
+				Sight s = new Sight(name, null, cost, difficulty, new Texture(Gdx.files.local("res/items/" + f.nameWithoutExtension() + ".png")));
 				s.setTriggerAttach(triggerAttach);
 			}
 			
 			System.out.println("Added new " + type + " - \"" + name + "\"!");
+		}
+	}
+	
+	//Loading technologies
+	public static void loadTechnologies()
+	{
+		FileHandle[] files = Gdx.files.local("res/technologies").list();
+		ArrayList<FileHandle> items = new ArrayList<FileHandle>();
+		
+		for(FileHandle f : files)
+		{
+			if(f.extension().equalsIgnoreCase("tch"))
+			{
+				items.add(f);
+			}
+		}
+		
+		for(FileHandle f : items)
+		{
+			int id = valueInt("id", f);
+			//Checking if exists
+			if(Technology.search(id) == null)
+			{
+				String name = value("name", f);
+				int x = Integer.parseInt(value("position", f).split(",")[0].trim());
+				int y = Integer.parseInt(value("position", f).split(",")[1].trim());
+				Vector2 position = new Vector2(x, y);
+				ArrayList<String> desc = new ArrayList<String>();
+				desc.add(value("desc", f));
+				int cost = valueInt("cost", f);
+				
+				new Technology(id, name, position, desc, cost, new Texture(Gdx.files.local("res/technologies/" + f.nameWithoutExtension() + ".png")));
+				
+				System.out.println("Added new technolgy - \"" + name + "\"!");
+			}
+			else
+				System.err.println("There is already technology with that id!");
 		}
 	}
 	
@@ -103,6 +143,20 @@ public class Load {
 		}
 		
 		return "";
+	}
+	public static int valueInt(String valueName, FileHandle file)
+	{
+		String[] lines = file.readString().split("\n");
+		
+		for(String s : lines)
+		{
+			if(s.contains(valueName + ":"))
+			{
+				return Integer.parseInt(s.split(":")[1].replaceAll("\\r\\n|\\r|\\n", " ").trim());
+			}
+		}
+		
+		return 0;
 	}
 	
 }

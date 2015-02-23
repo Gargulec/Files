@@ -1,0 +1,6 @@
+id: 2
+name: test2
+desc: Unlocks gold weapon parts.
+position: -20, 630
+required:
+cost: 200

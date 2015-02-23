@@ -63,6 +63,8 @@ public class Main extends Game {
 		
 		//Loading items
 		Load.loadStandardItems();
+		//Loading technologies
+		Load.loadTechnologies();
 		
 		//Screens
 		menu = new MainMenu();

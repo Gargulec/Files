@@ -1,0 +1,6 @@
+type: barrel
+name: Metal Barrel
+desc: A good metal barrel.
+cost: 500
+difficulty: 20
+triggerAttach: 16, 29

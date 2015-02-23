@@ -1,6 +1,7 @@
 package me.Guns;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
 
@@ -14,6 +15,7 @@ import me.Guns.GunPart.Stock;
 import me.Guns.GunPart.Trigger;
 import me.Guns.Message.Message;
 import me.Guns.Prototype.Prototype;
+import me.Guns.Technology.Technology;
 
 public class Game {
 
@@ -22,16 +24,16 @@ public class Game {
 	
 	//Created guns list
 	public static ArrayList<Prototype> prototypes = new ArrayList<Prototype>();
-	
 	//List of factories
 	public static ArrayList<Factory> factories = new ArrayList<Factory>();
-	
 	//List of countries
 	public static ArrayList<Country> countries = new ArrayList<Country>();
-	
 	//List of events
 	public static ArrayList<Event> events = new ArrayList<Event>();
 	
+	/**Technologies**/
+	public static ArrayList<Technology> technologies = new ArrayList<Technology>();
+	public static ArrayList<Integer> researched = new ArrayList<Integer>();
 	
 	/**In-game item lists**/
 	//Trigger list
@@ -50,6 +52,7 @@ public class Game {
 	
 	/**Game loop**/
 	public float timer;
+	Random r = new Random();
 	public void gameLoop()
 	{
 		timer += Gdx.graphics.getDeltaTime();
@@ -57,7 +60,8 @@ public class Game {
 		if(timer >= 2.0)
 		{
 			//Generating events
-			Event.newEvent();
+			if(r.nextInt(100) <= 30)
+				Event.newEvent();
 			//Factory production
 			for(Factory f : factories)
 				f.produce();
