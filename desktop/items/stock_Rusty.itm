@@ -1,6 +1,0 @@
-type: stock
-name: Rusty Stock
-desc: A rusty stock.
-cost: 10
-difficulty: 10
-triggerAttach: 28, 18
