@@ -18,17 +18,17 @@ public class Message {
 	private String topic;
 	//Content
 	private String[] content;
-	//If important
-	private boolean isImportant;
+	//Importance level
+	private int importanceLevel;
 	//To destroy
 	private boolean destroy;
 	
 	//Constructor
-	public Message(String topic, String[] content, boolean isImportant)
+	public Message(String topic, String[] content, int isImportant)
 	{
 		setTopic(topic);
 		setContent(content);
-		setImportant(isImportant);
+		setImportanceLevel(isImportant);
 	}
 	
 	//Drawing
@@ -39,10 +39,19 @@ public class Message {
 		//Drawing background
 		batch.end();
 		sr.begin(ShapeType.Filled);
-		if(isImportant())
-			sr.setColor(new Color(.7f, 0, 0, 1));
-		else
-			sr.setColor(new Color(.3f, .3f, .3f, 1));
+		//Selecting color
+		switch(getImportanceLevel())
+		{
+			case 0:
+				sr.setColor(new Color(.5f, 0, 0, 1));
+				break;
+			case 1:
+				sr.setColor(new Color(.7f, 0, 0, 1)); 
+				break;
+			case 2:
+				sr.setColor(new Color(1f, 0, 0, 1));
+				break;
+		}
 		sr.rect(x, y, 200, 30);
 		sr.end();	
 		batch.begin();
@@ -123,15 +132,6 @@ public class Message {
 	{
 		this.content = content;
 	}
-	
-	public boolean isImportant() 
-	{
-		return isImportant;
-	}
-	public void setImportant(boolean isImportant) 
-	{
-		this.isImportant = isImportant;
-	}
 
 	public boolean isDestroy() 
 	{
@@ -140,6 +140,15 @@ public class Message {
 	public void setDestroy(boolean destroy)
 	{
 		this.destroy = destroy;
+	}
+
+	public int getImportanceLevel() 
+	{
+		return importanceLevel;
+	}
+	public void setImportanceLevel(int importanceLevel) 
+	{
+		this.importanceLevel = importanceLevel;
 	}
 	
 }
