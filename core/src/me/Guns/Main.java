@@ -98,8 +98,7 @@ public class Main extends Game {
 		
 		me.Guns.Game.events.add(new TerroristAttack());
 		
-		me.Guns.Game.messages.add(new Message("Attack!", new String[2], false));
-		me.Guns.Game.messages.add(new Message("New propositon!", new String[2], true));
+		me.Guns.Game.messages.add(new Message("Attack!", new String[2], 0));
 		/****/
 		
 		//Static windows

@@ -47,7 +47,7 @@ public class TerroristAttack extends Event{
 		//Counting buying madness
 		getAttackedCountry().setBuyingMadness(r.nextInt(40) + 10);
 		//Adding message
-		Game.messages.add(new Message("Terrorist attack!", new String[1], true));
+		Game.messages.add(new Message("Terrorist attack!", new String[1], 2));
 	}
 	
 	/**Getters & Setters**/

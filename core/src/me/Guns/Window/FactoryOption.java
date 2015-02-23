@@ -19,6 +19,8 @@ public class FactoryOption extends StudiumWindow{
 	//Factory
 	public static Factory factory;
 	
+	//Labels
+	StudiumLabel workers;
 	//TextFields
 	StudiumTextField factoryName = new FactoryName(10, getHeight() - 55, this);
 	
@@ -47,6 +49,8 @@ public class FactoryOption extends StudiumWindow{
 		add(new StudiumLabel(150, getHeight() - 85, this, "Producing", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
 		add(new StudiumLabel(10, getHeight() - 155, this, "Hire", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
 		add(new StudiumLabel(10, getHeight() - 230, this, "Destroy", new Color(.9f, 0, 0, 1), Main.fontSmall));
+		workers = new StudiumLabel(0, getHeight() - 155, this, "", new Color(.7f, .7f, .7f, 1), Main.fontSmall);
+		add(workers);
 		//Text fields
 		factoryName.setText(factory.getName());
 		add(factoryName);
@@ -69,6 +73,10 @@ public class FactoryOption extends StudiumWindow{
 		
 		if(isActive())
 		{
+			//Workers amount
+			workers.setText(factory.getWorkers() + " Workers");
+			workers.setX(getWidth() - 20 - Main.fontSmall.getBounds(workers.getText()).width);
+			//Product image
 			if(factory.getProduction() != null)
 				factory.getProduction().draw(batch, getX() + 155, getHeight() + getY() - 140);
 		}
