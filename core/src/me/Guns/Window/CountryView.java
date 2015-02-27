@@ -35,7 +35,7 @@ public class CountryView extends StudiumWindow{
 		super(x, y, 320, 320);
 		
 		setActive(false);
-		setBgColor(new Color(0.3f, .3f, .3f, 1));
+		setBgColor(new Color(.3f, .3f, .3f, 1));
 	}
 	
 	//Opened

@@ -112,15 +112,27 @@ public class Load {
 			//Checking if exists
 			if(Technology.search(id) == null)
 			{
+				//Name
 				String name = value("name", f);
+				//Position
 				int x = Integer.parseInt(value("position", f).split(",")[0].trim());
 				int y = Integer.parseInt(value("position", f).split(",")[1].trim());
 				Vector2 position = new Vector2(x, y);
+				//Description
 				ArrayList<String> desc = new ArrayList<String>();
-				desc.add(value("desc", f));
+				for(String s : value("desc", f).split("/n/"))
+					desc.add(s);
+				//Cost
 				int cost = valueInt("cost", f);
+				//Required techs
+				ArrayList<Integer> required = new ArrayList<Integer>();
+				if(!value("required", f).equals(""))
+				{
+					for(String s : value("required", f).split(","))
+						required.add(Integer.parseInt(s.trim()));
+				}
 				
-				new Technology(id, name, position, desc, cost, new Texture(Gdx.files.local("res/technologies/" + f.nameWithoutExtension() + ".png")));
+				new Technology(id, name, position, desc, cost, required, new Texture(Gdx.files.local("res/technologies/" + f.nameWithoutExtension() + ".png")));
 				
 				System.out.println("Added new technolgy - \"" + name + "\"!");
 			}

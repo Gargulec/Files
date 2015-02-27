@@ -19,11 +19,13 @@ public class Technology {
 	private ArrayList<String> description = new ArrayList<String>();
 	/**Research points needed to research this tech**/
 	private int researchCost;
+	//Required techs
+	private ArrayList<Integer> requiredTechs = new ArrayList<Integer>();
 	//Image
 	private Texture image;
 	
 	//Constructor
-	public Technology(int id, String name, Vector2 position, ArrayList<String> description, int researchCost, Texture image)
+	public Technology(int id, String name, Vector2 position, ArrayList<String> description, int researchCost, ArrayList<Integer> requiredTechs, Texture image)
 	{
 //		id = Game.technologies.size();
 		this.id = id;
@@ -31,6 +33,7 @@ public class Technology {
 		this.position = position;
 		this.description = description;
 		this.researchCost = researchCost;
+		this.requiredTechs = requiredTechs;
 		this.image = image;
 		
 		Game.technologies.add(this);
@@ -103,6 +106,15 @@ public class Technology {
 	public void setImage(Texture image)
 	{
 		this.image = image;
+	}
+
+	public ArrayList<Integer> getRequiredTechs()
+	{
+		return requiredTechs;
+	}
+	public void setRequiredTechs(ArrayList<Integer> requiredTechs) 
+	{
+		this.requiredTechs = requiredTechs;
 	}
 	
 }

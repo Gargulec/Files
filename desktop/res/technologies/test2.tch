@@ -1,6 +1,6 @@
 id: 2
 name: test2
-desc: Unlocks gold weapon parts.
-position: -20, 630
-required:
+desc: It's a second test/n/tech.
+position: 160, 330
+required: 1
 cost: 200

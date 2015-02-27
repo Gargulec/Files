@@ -1,0 +1,7 @@
+id: 4
+name: test3
+desc: It's a fourth test/n/tech.
+position: 260, 430
+required: 1, 2, 3
+cost: 200
+
