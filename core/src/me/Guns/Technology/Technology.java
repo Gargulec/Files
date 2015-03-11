@@ -3,6 +3,7 @@ package me.Guns.Technology;
 import java.util.ArrayList;
 
 import me.Guns.Game;
+import me.Guns.Objects;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
@@ -36,13 +37,13 @@ public class Technology {
 		this.requiredTechs = requiredTechs;
 		this.image = image;
 		
-		Game.technologies.add(this);
+		Objects.technologies.add(this);
 	}
 	
 	/**Searching for technology with id**/
 	public static Technology search(int id)
 	{
-		for(Technology t: Game.technologies)
+		for(Technology t: Objects.technologies)
 		{
 			if(t.getID() == id)
 				return t;

@@ -3,6 +3,7 @@ package me.Guns.Event;
 import java.util.Random;
 
 import me.Guns.Game;
+import me.Guns.Objects;
 
 public class Event {
 
@@ -23,14 +24,14 @@ public class Event {
 	{
 		Random r = new Random();
 		
-		int event = r.nextInt(Game.events.size() + 1);
+		int event = r.nextInt(Objects.events.size() + 1);
 		
 		if(event == 0)
 			return;
 		else
 		{
-			Game.events.get(event - 1).generate();
-			Game.events.get(event - 1).act();
+			Objects.events.get(event - 1).generate();
+			Objects.events.get(event - 1).act();
 		}
 	}
 	

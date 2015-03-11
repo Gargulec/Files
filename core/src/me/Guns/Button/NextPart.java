@@ -2,6 +2,7 @@ package me.Guns.Button;
 
 import me.GUI.Component.StudiumComponent;
 import me.Guns.Game;
+import me.Guns.Objects;
 import me.Guns.Screen.CreateScreen;
 
 public class NextPart extends GunsButton{
@@ -18,7 +19,7 @@ public class NextPart extends GunsButton{
 		//Trigger
 		if(CreateScreen.selectedPart == 1)
 		{
-			if(CreateScreen.prototype.getTrigger().getID() < Game.triggers.size() - 1)
+			if(CreateScreen.prototype.getTrigger().getID() < Game.triggersUnlocked.size() - 1)
 				CreateScreen.prototype.setTrigger(CreateScreen.prototype.getTrigger().getID() + 1);
 			else
 				CreateScreen.prototype.setTrigger(0);
@@ -26,7 +27,7 @@ public class NextPart extends GunsButton{
 		//Barrel
 		else if(CreateScreen.selectedPart == 2)
 		{
-			if(CreateScreen.prototype.getBarrel().getID() < Game.barrels.size() - 1)
+			if(CreateScreen.prototype.getBarrel().getID() < Game.barrelsUnlocked.size() - 1)
 				CreateScreen.prototype.setBarrel(CreateScreen.prototype.getBarrel().getID() + 1);
 			else
 				CreateScreen.prototype.setBarrel(0);
@@ -38,7 +39,7 @@ public class NextPart extends GunsButton{
 				CreateScreen.prototype.setStock(0);
 			else
 			{
-				if(CreateScreen.prototype.getStock().getID() < Game.stocks.size() - 1)
+				if(CreateScreen.prototype.getStock().getID() < Objects.stocks.size() - 1)
 					CreateScreen.prototype.setStock(CreateScreen.prototype.getStock().getID() + 1);
 				else
 					CreateScreen.prototype.setStock(0);
@@ -51,7 +52,7 @@ public class NextPart extends GunsButton{
 				CreateScreen.prototype.setSight(0);
 			else
 			{
-				if(CreateScreen.prototype.getSight().getID() < Game.sights.size() - 1)
+				if(CreateScreen.prototype.getSight().getID() < Objects.sights.size() - 1)
 					CreateScreen.prototype.setSight(CreateScreen.prototype.getSight().getID() + 1);
 				else
 					CreateScreen.prototype.setSight(0);

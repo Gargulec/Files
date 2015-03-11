@@ -3,6 +3,7 @@ package me.Guns.GunPart;
 import java.util.ArrayList;
 
 import me.Guns.Game;
+import me.Guns.Objects;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -18,9 +19,9 @@ public class Stock extends GunPart{
 	{
 		super(name, desc, cost, difficulty, texture);
 		//Setting id
-		setID(Game.stocks.size());
+		setID(Objects.stocks.size());
 		//Adding to list
-		Game.stocks.add(this);
+		Objects.stocks.add(this);
 	}
 
 	//Getters & Setters

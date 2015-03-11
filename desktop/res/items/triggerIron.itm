@@ -1,0 +1,6 @@
+type: barrel
+name: Iron Trigger
+desc: Simple iron trigger
+cost: 666
+difficulty: 20
+barrelAttach: 0, 30

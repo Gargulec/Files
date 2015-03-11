@@ -1,6 +1,0 @@
-type: sight
-name: Rusty Sight
-desc: A rusty sight.
-cost: 10
-difficulty: 10
-triggerAttach: 20, 27

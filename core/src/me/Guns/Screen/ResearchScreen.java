@@ -14,6 +14,7 @@ import me.GUI.Component.StudiumLabel;
 import me.GUI.Screen.StudiumScreen;
 import me.Guns.Game;
 import me.Guns.Main;
+import me.Guns.Objects;
 import me.Guns.Button.GunsButtonGoTo;
 import me.Guns.Technology.Technology;
 
@@ -142,7 +143,7 @@ public class ResearchScreen extends StudiumScreen{
 		batch.draw(bg, 0, 0);
 		
 		//Drawing lines
-		for(Technology t : Game.technologies)
+		for(Technology t : Objects.technologies)
 		{
 			if(t.getPosition().x > offset.x - 50 && t.getPosition().x < offset.x + Gdx.graphics.getWidth() + 50)
 			{
@@ -165,7 +166,7 @@ public class ResearchScreen extends StudiumScreen{
 			}
 		}
 		//Drawing technologies
-		for(Technology t : Game.technologies)
+		for(Technology t : Objects.technologies)
 		{
 			if(t.getPosition().x > offset.x - 50 && t.getPosition().x < offset.x + Gdx.graphics.getWidth() + 50)
 			{

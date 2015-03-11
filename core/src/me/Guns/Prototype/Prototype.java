@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import me.Guns.Game;
+import me.Guns.Objects;
 import me.Guns.GunPart.Barrel;
 import me.Guns.GunPart.Sight;
 import me.Guns.GunPart.Stock;
@@ -108,7 +109,7 @@ public class Prototype {
 	/**Getters & Setters**/
 	public Trigger getTrigger()
 	{
-		return Game.triggers.get(this.trigger);
+		return Objects.triggers.get(this.trigger);
 	}
 	public void setTrigger(int trigger) 
 	{
@@ -117,7 +118,7 @@ public class Prototype {
 	
 	public Barrel getBarrel() 
 	{
-		return Game.barrels.get(this.barrel);
+		return Objects.barrels.get(this.barrel);
 	}
 	public void setBarrel(int barrel) 
 	{
@@ -126,10 +127,10 @@ public class Prototype {
 	
 	public Stock getStock()
 	{
-		if(this.stock == -1 || Game.stocks.size() == 0)
+		if(this.stock == -1 || Objects.stocks.size() == 0)
 			return null;
 		
-		return Game.stocks.get(this.stock);
+		return Objects.stocks.get(this.stock);
 	}
 	public void setStock(int stock)
 	{
@@ -138,10 +139,10 @@ public class Prototype {
 	
 	public Sight getSight()
 	{
-		if(this.sight == -1 || Game.sights.size() == 0)
+		if(this.sight == -1 || Objects.sights.size() == 0)
 			return null;
 		
-		return Game.sights.get(this.sight);
+		return Objects.sights.get(this.sight);
 	}
 	public void setSight(int sight)
 	{

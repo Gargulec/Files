@@ -3,3 +3,4 @@ name: Good weapon parts
 desc: Unlocks gold/n/weapon parts.
 position: 260, 130
 cost: 200
+unlocks: barrel_Good, trigger_Good

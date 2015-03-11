@@ -28,24 +28,11 @@ public class Game {
 	public static ArrayList<Factory> factories = new ArrayList<Factory>();
 	//List of countries
 	public static ArrayList<Country> countries = new ArrayList<Country>();
-	//List of events
-	public static ArrayList<Event> events = new ArrayList<Event>();
-	
-	/**Technologies**/
-	public static ArrayList<Technology> technologies = new ArrayList<Technology>();
+	//Researched
 	public static ArrayList<Integer> researched = new ArrayList<Integer>();
-	
-	/**In-game item lists**/
-	//Trigger list
-	public static ArrayList<Trigger> triggers = new ArrayList<Trigger>();
-	//Barrels list
-	public static ArrayList<Barrel> barrels = new ArrayList<Barrel>();
-	//Stocks list
-	public static ArrayList<Stock> stocks = new ArrayList<Stock>();
-	//Sights list
-	public static ArrayList<Sight> sights = new ArrayList<Sight>();
-	//Silencers list
-	public static ArrayList<Silencer> silencers = new ArrayList<Silencer>();
+	//Unlocked items
+	public static ArrayList<Barrel> barrelsUnlocked = new ArrayList<Barrel>();
+	public static ArrayList<Trigger> triggersUnlocked = new ArrayList<Trigger>();
 	
 	//List of messages
 	public static ArrayList<Message> messages = new ArrayList<Message>();

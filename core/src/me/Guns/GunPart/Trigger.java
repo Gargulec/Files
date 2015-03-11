@@ -3,6 +3,7 @@ package me.Guns.GunPart;
 import java.util.ArrayList;
 
 import me.Guns.Game;
+import me.Guns.Objects;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
@@ -23,9 +24,9 @@ public class Trigger extends GunPart{
 	{
 		super(name, desc, cost, difficulty, texture);
 		//Setting id
-		setID(Game.triggers.size());
+		setID(Objects.triggers.size());
 		//Adding to list
-		Game.triggers.add(this);
+		Objects.triggers.add(this);
 	}
 
 	/**Getters & Setters**/

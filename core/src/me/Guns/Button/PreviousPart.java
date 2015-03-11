@@ -20,16 +20,16 @@ public class PreviousPart extends GunsButton{
 		{
 			if(CreateScreen.prototype.getTrigger().getID() > 0)
 				CreateScreen.prototype.setTrigger(CreateScreen.prototype.getTrigger().getID() - 1);
-			else
-				CreateScreen.prototype.setTrigger(Game.triggers.size() - 1);
+			else if(Game.barrelsUnlocked.size() > 1)
+				CreateScreen.prototype.setTrigger(Game.triggersUnlocked.size() - 1);
 		}
 		//Barrel
 		else if(CreateScreen.selectedPart == 2)
 		{
 			if(CreateScreen.prototype.getBarrel().getID() > 0)
 				CreateScreen.prototype.setBarrel(CreateScreen.prototype.getBarrel().getID() - 1);
-			else
-				CreateScreen.prototype.setBarrel(Game.barrels.size() - 1);
+			else if(Game.barrelsUnlocked.size() > 1)
+				CreateScreen.prototype.setBarrel(Game.barrelsUnlocked.size() - 1);
 		}
 	}
 

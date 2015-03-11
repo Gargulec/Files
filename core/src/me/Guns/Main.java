@@ -6,6 +6,8 @@ import me.Guns.Country.Country;
 import me.Guns.Event.TerroristAttack;
 import me.Guns.Factory.Factory;
 import me.Guns.Files.Load;
+import me.Guns.GunPart.Barrel;
+import me.Guns.GunPart.Trigger;
 import me.Guns.Message.Message;
 import me.Guns.Screen.AssignScreen;
 import me.Guns.Screen.ComplexScreen;
@@ -28,6 +30,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 
 public class Main extends Game {
 
@@ -62,6 +65,10 @@ public class Main extends Game {
 		fontBig = StudiumLabel.createFontFromTTF(Gdx.files.internal("visitor1.ttf"), 50);
 		
 		//Loading items
+		Trigger rustyTrigger = new Trigger("Rusty Trigger", null, 100, 10, new Texture(Gdx.files.internal("graphics/triggerRusty.png")));
+		rustyTrigger.setBarrelAttach(new Vector2(31, 14));
+		Barrel rustyBarrel = new Barrel("Rusty Barrel", null, 150, 10, new Texture(Gdx.files.internal("graphics/barrelRusty.png")));
+		rustyBarrel.setTriggerAttach(new Vector2(0, 31));
 		Load.loadStandardItems();
 		//Loading technologies
 		Load.loadTechnologies();
@@ -96,7 +103,7 @@ public class Main extends Game {
 		me.Guns.Game.countries.add(new Country("Germany", 3000));
 		me.Guns.Game.countries.add(new Country("France", 2400));
 		
-		me.Guns.Game.events.add(new TerroristAttack());
+		Objects.events.add(new TerroristAttack());
 		
 		me.Guns.Game.messages.add(new Message("Attack!", new String[2], 0));
 		/****/
