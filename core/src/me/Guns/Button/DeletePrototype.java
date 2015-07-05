@@ -2,8 +2,7 @@ package me.Guns.Button;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import me.GUI.Component.StudiumComponent;
-import me.GUI.Screen.StudiumScreen;
+import lib.gui.StudiumScreen;
 import me.Guns.Game;
 import me.Guns.Main;
 import me.Guns.Factory.Factory;
@@ -15,9 +14,9 @@ public class DeletePrototype extends GunsButton{
 	Prototype prototype;
 	
 	//Constructor
-	public DeletePrototype(float x, float y, StudiumComponent parent, Prototype prototype) 
+	public DeletePrototype(float x, float y, Prototype prototype) 
 	{
-		super(x, y, "Delete", parent);
+		super(x, y, "Delete");
 		this.prototype = prototype;
 	}
 	
@@ -32,13 +31,7 @@ public class DeletePrototype extends GunsButton{
 					f.setProduction(null);
 		}
 		
-		StudiumScreen.change(Main.main, Main.complex);
+		StudiumScreen.change(Main.main, Main.map);
 	}
 	
-	//Draw
-	public void draw(SpriteBatch batch) 
-	{
-		super.draw(batch);
-	}
-
 }

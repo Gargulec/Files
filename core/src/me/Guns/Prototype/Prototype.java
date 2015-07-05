@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import me.Guns.Game;
 import me.Guns.Objects;
 import me.Guns.GunPart.Barrel;
 import me.Guns.GunPart.Sight;

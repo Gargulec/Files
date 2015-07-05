@@ -3,16 +3,16 @@ package me.Guns.Button;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-import me.GUI.Component.StudiumComponent;
 import me.Guns.Screen.CreateScreen;
 
 public class SelectBarrel extends GunsButton{
 
 	//Constructor
-	public SelectBarrel(float x, float y, StudiumComponent parent) 
+	public SelectBarrel(float x, float y) 
 	{
-		super(x, y, "", parent);
+		super(x, y, "");
 		
 		//Width
 		setWidth(96);
@@ -21,9 +21,9 @@ public class SelectBarrel extends GunsButton{
 	}
 	
 	//Draw
-	public void draw(SpriteBatch batch) 
+	public void draw(SpriteBatch batch, ShapeRenderer renderer) 
 	{
-		super.draw(batch);
+		super.draw(batch, renderer);
 	
 		float y = Gdx.graphics.getHeight() - Gdx.input.getY();
 		if((CreateScreen.partView && CreateScreen.selectedPart == 2) || 

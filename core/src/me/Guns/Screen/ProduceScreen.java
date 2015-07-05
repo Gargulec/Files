@@ -5,9 +5,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
-import me.GUI.Component.StudiumComponent;
-import me.GUI.Component.StudiumLabel;
-import me.GUI.Screen.StudiumScreen;
+import lib.gui.StudiumLabel;
+import lib.gui.StudiumScreen;
 import me.Guns.Game;
 import me.Guns.Main;
 import me.Guns.Button.BuildNewFactory;
@@ -46,16 +45,16 @@ public class ProduceScreen extends StudiumScreen{
 	{
 		removeAllComponents();
 		//Labels
-		add(new StudiumLabel(80, Gdx.graphics.getHeight() - 75, null, "Name", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
-		add(new StudiumLabel(300, Gdx.graphics.getHeight() - 75, null, "Workers", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
-		add(new StudiumLabel(430, Gdx.graphics.getHeight() - 75, null, "Status", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(80, Gdx.graphics.getHeight() - 75, "Name", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(300, Gdx.graphics.getHeight() - 75, "Workers", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(430, Gdx.graphics.getHeight() - 75, "Status", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
 		//Buttons
-		add(new GunsButtonGoTo(80, 80, "Back", null, Main.complex));
-		add(new BuildNewFactory(80, 120, null));
+		add(new GunsButtonGoTo(80, 80, "Back", Main.map));
+		add(new BuildNewFactory(80, 120));
 		int offset = 0;
 		for(Factory f : Game.factories)
 		{
-			add(new FactoryInfo(665, Gdx.graphics.getHeight() - 105 - offset, null, f));
+			add(new FactoryInfo(665, Gdx.graphics.getHeight() - 105 - offset, f));
 			offset += 30;
 		}
 		//Factory options
@@ -73,7 +72,7 @@ public class ProduceScreen extends StudiumScreen{
 	public void draw()
 	{
 		//Drawing background
-		batch.draw(background, 0, 0);
+		batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		//List of factories
 		int offset = 0;
 		for(Factory f : Game.factories)

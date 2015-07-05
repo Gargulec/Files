@@ -1,7 +1,5 @@
 package me.Guns;
 
-import me.GUI.Component.StudiumLabel;
-import me.GUI.Screen.StudiumScreen;
 import me.Guns.Country.Country;
 import me.Guns.Event.TerroristAttack;
 import me.Guns.Factory.Factory;
@@ -9,18 +7,7 @@ import me.Guns.Files.Load;
 import me.Guns.GunPart.Barrel;
 import me.Guns.GunPart.Trigger;
 import me.Guns.Message.Message;
-import me.Guns.Screen.AssignScreen;
-import me.Guns.Screen.ComplexScreen;
-import me.Guns.Screen.CreateScreen;
-import me.Guns.Screen.MainMenu;
-import me.Guns.Screen.MapScreen;
-import me.Guns.Screen.MessageScreen;
-import me.Guns.Screen.ProduceScreen;
-import me.Guns.Screen.PrototypesListScreen;
-import me.Guns.Screen.RatingScreen;
-import me.Guns.Screen.ResearchScreen;
-import me.Guns.Screen.StatsScreen;
-import me.Guns.Window.StatsWindow;
+import me.Guns.Screen.*;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
@@ -32,6 +19,9 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
+import lib.gui.StudiumLabel;
+import lib.gui.StudiumScreen;
+
 public class Main extends Game {
 
 	public static Main main;
@@ -39,7 +29,6 @@ public class Main extends Game {
 	
 	/**Game Screens**/
 	public static MainMenu menu;
-	public static ComplexScreen complex;
 	public static CreateScreen create;
 	public static ProduceScreen produce;
 	public static PrototypesListScreen prototypes;
@@ -80,7 +69,6 @@ public class Main extends Game {
 		prototypes = new PrototypesListScreen();
 		research = new ResearchScreen();
 		stats = new StatsScreen();
-		complex = new ComplexScreen();
 		assign = new AssignScreen();
 		map = new MapScreen();
 		message = new MessageScreen();
@@ -88,7 +76,6 @@ public class Main extends Game {
 		create.createButtons();
 		research.createButtons();
 		stats.createButtons();
-		complex.createButtons();
 		map.createButtons();
 		message.createButtons();
 		rating.createButtons();
@@ -99,19 +86,17 @@ public class Main extends Game {
 		me.Guns.Game.factories.add(new Factory());
 		me.Guns.Game.factories.add(new Factory());
 		
-		me.Guns.Game.countries.add(new Country("Poland", 40000000));
-		me.Guns.Game.countries.add(new Country("Germany", 3000));
-		me.Guns.Game.countries.add(new Country("France", 2400));
+//		me.Guns.Game.countries.add(new Country("Poland", 40000000));
+//		me.Guns.Game.countries.add(new Country("Germany", 3000));
+//		me.Guns.Game.countries.add(new Country("France", 2400));
 		
-		Objects.events.add(new TerroristAttack());
+//		Objects.events.add(new TerroristAttack());
 		
 		me.Guns.Game.messages.add(new Message("Attack!", new String[2], 0));
 		/****/
 		
 		//Static windows
-		StudiumScreen.addStatic(new StatsWindow(0, Gdx.graphics.getHeight() - 50));
-		
-		StudiumScreen.change(this, complex);
+		StudiumScreen.change(this, map);
 	}
 	
 	//Update

@@ -2,10 +2,10 @@ package me.Guns.Window;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-import me.GUI.Component.StudiumLabel;
-import me.GUI.Component.StudiumTextField;
-import me.GUI.Screen.StudiumWindow;
+import lib.gui.StudiumLabel;
+import lib.gui.StudiumWindow;
 import me.Guns.Main;
 import me.Guns.Button.AddExportAmount;
 import me.Guns.Button.CloseFactoryOptions;
@@ -25,9 +25,9 @@ public class CountryView extends StudiumWindow{
 	public static Country country;
 	
 	//Labels
-	public StudiumLabel magazineAmount = new StudiumLabel(150, getHeight() - 240, this, "", new Color(1, 1, 1, 1), Main.fontSmall);
-	public StudiumLabel amount = new StudiumLabel(150, getHeight() - 260, this, "", new Color(1, 1, 1, 1), Main.fontSmall);
-	public StudiumLabel exportAmount = new StudiumLabel(150, getHeight() - 280, this, "", new Color(1, 1, 1, 1), Main.fontSmall);
+	public StudiumLabel magazineAmount = new StudiumLabel(150, getHeight() - 240, "", new Color(1, 1, 1, 1), Main.fontSmall);
+	public StudiumLabel amount = new StudiumLabel(150, getHeight() - 260, "", new Color(1, 1, 1, 1), Main.fontSmall);
+	public StudiumLabel exportAmount = new StudiumLabel(150, getHeight() - 280, "", new Color(1, 1, 1, 1), Main.fontSmall);
 	
 	//Costructor
 	public CountryView(float x, float y)
@@ -50,34 +50,34 @@ public class CountryView extends StudiumWindow{
 		getChildren().clear();
 		
 		//Labels
-		add(new StudiumLabel(10, getHeight() - 20, this, "Name", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
-		add(new StudiumLabel(10, getHeight() - 40, this, country.getName(), new Color(1, 1, 1, 1), Main.fontSmall));
-		add(new StudiumLabel(10, getHeight() - 70, this, "Population", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
-		add(new StudiumLabel(10, getHeight() - 90, this, country.getPopulation() + "", new Color(1, 1, 1, 1), Main.fontSmall));
-		add(new StudiumLabel(10, getHeight() - 120, this, "Weapon interest", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
-		add(new StudiumLabel(10, getHeight() - 140, this, (int)(country.getInterest()*100) + "%", new Color(1, 1, 1, 1), Main.fontSmall));
-		add(new StudiumLabel(10, getHeight() - 170, this, "Requirements", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
-		add(new StudiumLabel(10, getHeight() - 190, this, country.getReqirementsString(), new Color(1, 1, 1, 1), Main.fontSmall));
-		add(new StudiumLabel(10, getHeight() - 220, this, "Exported weapon", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(10, getHeight() - 20, "Name", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(10, getHeight() - 40, country.getName(), new Color(1, 1, 1, 1), Main.fontSmall));
+		add(new StudiumLabel(10, getHeight() - 70, "Population", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(10, getHeight() - 90, country.getPopulation() + "", new Color(1, 1, 1, 1), Main.fontSmall));
+		add(new StudiumLabel(10, getHeight() - 120, "Weapon interest", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(10, getHeight() - 140, (int)(country.getInterest()*100) + "%", new Color(1, 1, 1, 1), Main.fontSmall));
+		add(new StudiumLabel(10, getHeight() - 170, "Requirements", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(10, getHeight() - 190, country.getReqirementsString(), new Color(1, 1, 1, 1), Main.fontSmall));
+		add(new StudiumLabel(10, getHeight() - 220, "Exported weapon", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
 		//Buttons
-		add(new CloseFactoryView(getWidth() - 20, getHeight() - 20, this));
+		add(new CloseFactoryView(getWidth() - 20, getHeight() - 20));
 		if(country.getExportedWeapon() == null)
-			add(new ExportAssign(10, getHeight() - 245, this));
+			add(new ExportAssign(10, getHeight() - 245));
 		else
 		{
-			add(new ExportAssign(10, getHeight() - 300, this));
+			add(new ExportAssign(10, getHeight() - 300));
 			add(magazineAmount);
 			add(amount);
 			add(exportAmount);
-			add(new AddExportAmount(170, getHeight() - 305, this));
-			add(new SubstractExportAmount(210, getHeight() - 305, this));
+			add(new AddExportAmount(170, getHeight() - 305));
+			add(new SubstractExportAmount(210, getHeight() - 305));
 		}
 	}
 	
 	//Draw
-	public void draw(SpriteBatch batch) 
+	public void draw(SpriteBatch batch, ShapeRenderer renderer) 
 	{
-		super.draw(batch);
+		super.draw(batch, renderer);
 	
 		if(isActive())
 		{

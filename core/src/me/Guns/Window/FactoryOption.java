@@ -2,10 +2,11 @@ package me.Guns.Window;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-import me.GUI.Component.StudiumLabel;
-import me.GUI.Component.StudiumTextField;
-import me.GUI.Screen.StudiumWindow;
+import lib.gui.StudiumLabel;
+import lib.gui.StudiumTextField;
+import lib.gui.StudiumWindow;
 import me.Guns.Main;
 import me.Guns.Button.CloseFactoryOptions;
 import me.Guns.Button.HireWorkers;
@@ -22,7 +23,7 @@ public class FactoryOption extends StudiumWindow{
 	//Labels
 	StudiumLabel workers;
 	//TextFields
-	StudiumTextField factoryName = new FactoryName(10, getHeight() - 55, this);
+	StudiumTextField factoryName = new FactoryName(10, getHeight() - 55);
 	
 	//Costructor
 	public FactoryOption(float x, float y)
@@ -44,32 +45,32 @@ public class FactoryOption extends StudiumWindow{
 		getChildren().clear();
 		
 		//Labels
-		add(new StudiumLabel(10, getHeight() - 20, this, "Name", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
-		add(new StudiumLabel(10, getHeight() - 85, this, "Production", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
-		add(new StudiumLabel(150, getHeight() - 85, this, "Producing", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
-		add(new StudiumLabel(10, getHeight() - 155, this, "Hire", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
-		add(new StudiumLabel(10, getHeight() - 230, this, "Destroy", new Color(.9f, 0, 0, 1), Main.fontSmall));
-		workers = new StudiumLabel(0, getHeight() - 155, this, "", new Color(.7f, .7f, .7f, 1), Main.fontSmall);
+		add(new StudiumLabel(10, getHeight() - 20, "Name", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(10, getHeight() - 85, "Production", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(150, getHeight() - 85, "Producing", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(10, getHeight() - 155, "Hire", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(10, getHeight() - 230, "Destroy", new Color(.9f, 0, 0, 1), Main.fontSmall));
+		workers = new StudiumLabel(0, getHeight() - 155, "", new Color(.7f, .7f, .7f, 1), Main.fontSmall);
 		add(workers);
 		//Text fields
 		factoryName.setText(factory.getName());
 		add(factoryName);
 		//Buttons
-		add(new ProductionAssign(10, getHeight() - 110, this));
-		StopProduction sp = new StopProduction(10, getHeight() - 130, this);
+		add(new ProductionAssign(10, getHeight() - 110));
+		StopProduction sp = new StopProduction(10, getHeight() - 130);
 		sp.check();
 		add(sp);
-		add(new CloseFactoryOptions(getWidth() - 20, getHeight() - 20, this));
-		add(new HireWorkers(10, getHeight() - 180, this, "+1 Worker", 1));
-		add(new HireWorkers(150, getHeight() - 180, this, "+10 Workers", 10));
-		add(new HireWorkers(10, getHeight() - 200, this, "+5 Workers", 5));
-		add(new HireWorkers(150, getHeight() - 200, this, "+50 Workers", 50));
+		add(new CloseFactoryOptions(getWidth() - 20, getHeight() - 20));
+		add(new HireWorkers(10, getHeight() - 180, "+1 Worker", 1));
+		add(new HireWorkers(150, getHeight() - 180, "+10 Workers", 10));
+		add(new HireWorkers(10, getHeight() - 200, "+5 Workers", 5));
+		add(new HireWorkers(150, getHeight() - 200, "+50 Workers", 50));
 	}
 	
 	//Draw
-	public void draw(SpriteBatch batch) 
+	public void draw(SpriteBatch batch, ShapeRenderer renderer) 
 	{
-		super.draw(batch);
+		super.draw(batch, renderer);
 		
 		if(isActive())
 		{

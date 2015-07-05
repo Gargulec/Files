@@ -3,20 +3,14 @@ package me.Guns.Screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
-import me.GUI.Component.StudiumComponent;
-import me.GUI.Component.StudiumLabel;
-import me.GUI.Screen.StudiumScreen;
+import lib.gui.StudiumLabel;
+import lib.gui.StudiumScreen;
 import me.Guns.Game;
 import me.Guns.Main;
 import me.Guns.Button.ChooseCountry;
 import me.Guns.Button.ChooseWeapon;
-import me.Guns.Button.DeletePrototype;
-import me.Guns.Button.EditPrototype;
 import me.Guns.Button.GunsButtonGoTo;
-import me.Guns.Button.ProductionAssign;
-import me.Guns.Button.NextPart;
 import me.Guns.Country.Country;
 import me.Guns.Factory.Factory;
 import me.Guns.Prototype.Prototype;
@@ -45,19 +39,19 @@ public class AssignScreen extends StudiumScreen{
 	{
 		removeAllComponents();
 		//Labels
-		add(new StudiumLabel(80, Gdx.graphics.getHeight() - 75, null, "Name", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
-		add(new StudiumLabel(500, Gdx.graphics.getHeight() - 75, null, "Amount", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
-		add(new StudiumLabel(280, Gdx.graphics.getHeight() - 75, null, "Look", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(80, Gdx.graphics.getHeight() - 75, "Name", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(500, Gdx.graphics.getHeight() - 75, "Amount", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
+		add(new StudiumLabel(280, Gdx.graphics.getHeight() - 75, "Look", new Color(.7f, .7f, .7f, 1), Main.fontSmall));
 		//Buttons
-		add(new GunsButtonGoTo(80, 80, "Back", null, Main.complex));
+		add(new GunsButtonGoTo(80, 80, "Back", Main.map));
 		
 		int offset = 0;
 		for(Prototype p : Game.prototypes)
 		{
 			if(factory != null)
-				add(new ChooseWeapon(630, Gdx.graphics.getHeight() - 105 - offset, null, p));
+				add(new ChooseWeapon(630, Gdx.graphics.getHeight() - 105 - offset, p));
 			else
-				add(new ChooseCountry(630, Gdx.graphics.getHeight() - 105 - offset, null, p));
+				add(new ChooseCountry(630, Gdx.graphics.getHeight() - 105 - offset, p));
 			offset += 50;
 		}
 	}

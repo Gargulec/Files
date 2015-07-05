@@ -1,17 +1,13 @@
 package me.Guns.Button;
 
-import me.GUI.Component.StudiumComponent;
-import me.Guns.Game;
-import me.Guns.Screen.CreateScreen;
 import me.Guns.Screen.MapScreen;
-import me.Guns.Screen.ProduceScreen;
 
 public class CloseFactoryView extends GunsButton{
 
 	//Constructor
-	public CloseFactoryView(float x, float y, StudiumComponent parent) 
+	public CloseFactoryView(float x, float y) 
 	{
-		super(x, y, "X", parent);
+		super(x, y, "X");
 		//Width
 		setWidth(20);
 		//Height

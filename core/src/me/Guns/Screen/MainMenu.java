@@ -1,6 +1,6 @@
 package me.Guns.Screen;
 
-import me.GUI.Screen.StudiumScreen;
+import lib.gui.StudiumScreen;
 
 public class MainMenu extends StudiumScreen{
 

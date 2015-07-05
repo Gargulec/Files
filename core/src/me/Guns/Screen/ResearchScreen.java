@@ -10,8 +10,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 import com.sun.prism.GraphicsPipeline.ShaderType;
 
-import me.GUI.Component.StudiumLabel;
-import me.GUI.Screen.StudiumScreen;
+import lib.gui.StudiumLabel;
+import lib.gui.StudiumScreen;
 import me.Guns.Game;
 import me.Guns.Main;
 import me.Guns.Objects;
@@ -29,24 +29,24 @@ public class ResearchScreen extends StudiumScreen{
 	//Constructor
 	public ResearchScreen() 
 	{
-		nameText = new StudiumLabel(560, Gdx.graphics.getHeight() - 75, null, "Name", new Color(.7f, .7f, .7f, 1), Main.fontSmall);
+		nameText = new StudiumLabel(560, Gdx.graphics.getHeight() - 75, "Name", new Color(.7f, .7f, .7f, 1), Main.fontSmall);
 		add(nameText);
-		name = new StudiumLabel(560, Gdx.graphics.getHeight() - 95, null, "Test", new Color(1, 1, 1, 1), Main.fontSmall);
+		name = new StudiumLabel(560, Gdx.graphics.getHeight() - 95, "Test", new Color(1, 1, 1, 1), Main.fontSmall);
 		add(name);
 		
-		costText = new StudiumLabel(560, Gdx.graphics.getHeight() - 125, null, "Research cost", new Color(.7f, .7f, .7f, 1), Main.fontSmall);
+		costText = new StudiumLabel(560, Gdx.graphics.getHeight() - 125, "Research cost", new Color(.7f, .7f, .7f, 1), Main.fontSmall);
 		add(costText);
-		cost = new StudiumLabel(560, Gdx.graphics.getHeight() - 145, null, "Test", new Color(1, 1, 1, 1), Main.fontSmall);
+		cost = new StudiumLabel(560, Gdx.graphics.getHeight() - 145, "Test", new Color(1, 1, 1, 1), Main.fontSmall);
 		add(cost);
 		
-		reqText = new StudiumLabel(560, Gdx.graphics.getHeight() - 175, null, "Requires", new Color(.7f, .7f, .7f, 1), Main.fontSmall);
+		reqText = new StudiumLabel(560, Gdx.graphics.getHeight() - 175, "Requires", new Color(.7f, .7f, .7f, 1), Main.fontSmall);
 		add(reqText);
-		requirement = new StudiumLabel(560, Gdx.graphics.getHeight() - 195, null, "Test", new Color(1, 1, 1, 1), Main.fontSmall);
+		requirement = new StudiumLabel(560, Gdx.graphics.getHeight() - 195, "Test", new Color(1, 1, 1, 1), Main.fontSmall);
 		add(requirement);
 		
-		descText = new StudiumLabel(560, Gdx.graphics.getHeight() - 225, null, "Description", new Color(.7f, .7f, .7f, 1), Main.fontSmall);
+		descText = new StudiumLabel(560, Gdx.graphics.getHeight() - 225, "Description", new Color(.7f, .7f, .7f, 1), Main.fontSmall);
 		add(descText);
-		desc = new StudiumLabel(560, Gdx.graphics.getHeight() - 245, null, "Test", new Color(1, 1, 1, 1), Main.fontSmall);
+		desc = new StudiumLabel(560, Gdx.graphics.getHeight() - 245, "Test", new Color(1, 1, 1, 1), Main.fontSmall);
 		add(desc);
 	}
 	
@@ -131,7 +131,7 @@ public class ResearchScreen extends StudiumScreen{
 	//Creating buttons
 	public void createButtons()
 	{
-		add(new GunsButtonGoTo(80, 80, "Back", null, Main.complex));
+		add(new GunsButtonGoTo(80, 80, "Back", Main.map));
 	}
 	
 	//Draw
@@ -140,7 +140,7 @@ public class ResearchScreen extends StudiumScreen{
 	public void draw()
 	{
 		//Drawing background
-		batch.draw(bg, 0, 0);
+		batch.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		
 		//Drawing lines
 		for(Technology t : Objects.technologies)

@@ -1,12 +1,6 @@
 package me.Guns.Button;
 
-import me.GUI.Component.StudiumComponent;
-import me.GUI.Screen.StudiumScreen;
-import me.Guns.Game;
-import me.Guns.Main;
 import me.Guns.Factory.Factory;
-import me.Guns.Screen.AssignScreen;
-import me.Guns.Screen.CreateScreen;
 import me.Guns.Screen.ProduceScreen;
 
 public class FactoryInfo extends GunsButton{
@@ -15,9 +9,9 @@ public class FactoryInfo extends GunsButton{
 	Factory factory;
 	
 	//Constructor
-	public FactoryInfo(float x, float y, StudiumComponent parent, Factory factory) 
+	public FactoryInfo(float x, float y, Factory factory) 
 	{
-		super(x, y, "Info", parent);
+		super(x, y, "Info");
 		this.factory = factory;
 	}
 	

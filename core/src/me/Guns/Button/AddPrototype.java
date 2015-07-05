@@ -1,7 +1,6 @@
 package me.Guns.Button;
 
-import me.GUI.Component.StudiumComponent;
-import me.GUI.Screen.StudiumScreen;
+import lib.gui.StudiumScreen;
 import me.Guns.Game;
 import me.Guns.Main;
 import me.Guns.Screen.CreateScreen;
@@ -9,9 +8,9 @@ import me.Guns.Screen.CreateScreen;
 public class AddPrototype extends GunsButton{
 
 	//Constructor
-	public AddPrototype(float x, float y, StudiumComponent parent) 
+	public AddPrototype(float x, float y) 
 	{
-		super(x, y, "Create", parent);
+		super(x, y, "Create");
 	}
 	
 	//Clicked

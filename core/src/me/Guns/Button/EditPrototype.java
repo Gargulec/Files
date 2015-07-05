@@ -1,14 +1,6 @@
 package me.Guns.Button;
 
-import me.GUI.Component.StudiumComponent;
-import me.GUI.Screen.StudiumScreen;
-import me.Guns.Game;
-import me.Guns.Main;
-import me.Guns.Factory.Factory;
 import me.Guns.Prototype.Prototype;
-import me.Guns.Screen.AssignScreen;
-import me.Guns.Screen.CreateScreen;
-import me.Guns.Screen.ProduceScreen;
 
 public class EditPrototype extends GunsButton{
 
@@ -16,9 +8,9 @@ public class EditPrototype extends GunsButton{
 	Prototype prototype;
 	
 	//Constructor
-	public EditPrototype(float x, float y, StudiumComponent parent, Prototype prototype) 
+	public EditPrototype(float x, float y, Prototype prototype) 
 	{
-		super(x, y, "Edit", parent);
+		super(x, y, "Edit");
 		this.prototype = prototype;
 	}
 	

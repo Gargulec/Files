@@ -1,7 +1,6 @@
 package me.Guns.Button;
 
-import me.GUI.Component.StudiumComponent;
-import me.GUI.Screen.StudiumScreen;
+import lib.gui.StudiumScreen;
 import me.Guns.Game;
 import me.Guns.Main;
 import me.Guns.Factory.Factory;
@@ -15,9 +14,9 @@ public class ChooseWeapon extends GunsButton{
 	Prototype prototype;
 	
 	//Constructor
-	public ChooseWeapon(float x, float y, StudiumComponent parent, Prototype prototype) 
+	public ChooseWeapon(float x, float y, Prototype prototype) 
 	{
-		super(x, y, "Choose", parent);
+		super(x, y, "Choose");
 		this.prototype = prototype;
 	}
 	

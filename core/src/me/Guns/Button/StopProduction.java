@@ -1,14 +1,13 @@
 package me.Guns.Button;
 
-import me.GUI.Component.StudiumComponent;
 import me.Guns.Window.FactoryOption;
 
 public class StopProduction extends GunsButton{
 
 	//Constructor
-	public StopProduction(float x, float y, StudiumComponent parent) 
+	public StopProduction(float x, float y)
 	{
-		super(x, y, "Stop", parent);
+		super(x, y, "Stop");
 		//Width
 		setWidth(70);
 	}

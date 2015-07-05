@@ -1,15 +1,14 @@
 package me.Guns.Button;
 
-import me.GUI.Component.StudiumComponent;
 import me.Guns.Game;
 import me.Guns.Screen.CreateScreen;
 
 public class PreviousPart extends GunsButton{
 
 	//Constructor
-	public PreviousPart(float x, float y, StudiumComponent parent) 
+	public PreviousPart(float x, float y) 
 	{
-		super(x, y, "Prev", parent);
+		super(x, y, "Prev");
 	}
 	
 	//Clicked

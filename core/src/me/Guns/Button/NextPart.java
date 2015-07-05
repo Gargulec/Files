@@ -1,6 +1,5 @@
 package me.Guns.Button;
 
-import me.GUI.Component.StudiumComponent;
 import me.Guns.Game;
 import me.Guns.Objects;
 import me.Guns.Screen.CreateScreen;
@@ -8,9 +7,9 @@ import me.Guns.Screen.CreateScreen;
 public class NextPart extends GunsButton{
 
 	//Constructor
-	public NextPart(float x, float y, StudiumComponent parent) 
+	public NextPart(float x, float y) 
 	{
-		super(x, y, "Next", parent);
+		super(x, y, "Next");
 	}
 	
 	//Clicked

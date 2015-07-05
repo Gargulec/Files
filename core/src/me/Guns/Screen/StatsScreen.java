@@ -5,8 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
-import me.GUI.Component.StudiumLabel;
-import me.GUI.Screen.StudiumScreen;
+import lib.gui.StudiumScreen;
 import me.Guns.Main;
 import me.Guns.Button.GunsButtonGoTo;
 
@@ -21,7 +20,7 @@ public class StatsScreen extends StudiumScreen{
 	//Creating buttons
 	public void createButtons()
 	{
-		add(new GunsButtonGoTo(80, 80, "Back", null, Main.complex));
+		add(new GunsButtonGoTo(80, 80, "Back", Main.map));
 	}
 	
 	//Game update

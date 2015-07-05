@@ -1,16 +1,14 @@
 package me.Guns.Button;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-import me.GUI.Component.StudiumButton;
-import me.GUI.Component.StudiumComponent;
+import lib.gui.CorniceButton;
 import me.Guns.Main;
-import me.Guns.Screen.CreateScreen;
 
-public class GunsButton extends StudiumButton{
+public class GunsButton extends CorniceButton{
 
 	//Title
 	private String title;
@@ -18,9 +16,9 @@ public class GunsButton extends StudiumButton{
 	private boolean textCentred;
 	
 	//Constructor
-	public GunsButton(float x, float y, String title, StudiumComponent parent)
+	public GunsButton(float x, float y, String title)
 	{
-		super(x, y, font.getBounds(title).width, font.getBounds(title).height + 10, parent);
+		super(x, y, font.getBounds(title).width, font.getBounds(title).height + 10, "");
 		
 		setBgColor(new Color(.8f, .8f, 0, 0));
 		
@@ -29,9 +27,9 @@ public class GunsButton extends StudiumButton{
 	
 	//Drawing button
 	static BitmapFont font = Main.fontSmall;
-	public void draw(SpriteBatch batch) 
+	public void draw(SpriteBatch batch, ShapeRenderer renderer)
 	{
-		super.draw(batch);
+		super.draw(batch, renderer);
 		
 		font.setColor(Color.WHITE);
 		if(isTextCentred())
@@ -39,10 +37,10 @@ public class GunsButton extends StudiumButton{
 		else
 			font.draw(batch, this.title, this.getX(), this.getY() -  font.getBounds(title).height/2 + 5);
 	}
-	public void draw(SpriteBatch batch, Color textColor) 
+	public void draw(SpriteBatch batch, ShapeRenderer renderer, Color textColor) 
 	{
 		font.setColor(textColor);
-		draw(batch);
+		draw(batch, renderer);
 	}
 
 	/**Getters & Setters**/

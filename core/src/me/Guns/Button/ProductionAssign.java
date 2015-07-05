@@ -1,7 +1,6 @@
 package me.Guns.Button;
 
-import me.GUI.Component.StudiumComponent;
-import me.GUI.Screen.StudiumScreen;
+import lib.gui.StudiumScreen;
 import me.Guns.Game;
 import me.Guns.Main;
 import me.Guns.Factory.Factory;
@@ -12,9 +11,9 @@ import me.Guns.Screen.ProduceScreen;
 public class ProductionAssign extends GunsButton{
 	
 	//Constructor
-	public ProductionAssign(float x, float y, StudiumComponent parent) 
+	public ProductionAssign(float x, float y) 
 	{
-		super(x, y, "Assign", parent);
+		super(x, y, "Assign");
 	}
 	
 	//Clicked
