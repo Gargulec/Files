@@ -26,7 +26,7 @@ public class MapScreen extends StudiumScreen{
 	
 	//Constructor
 	public MapScreen()
-	{
+	{		
 		bg = new Texture(Gdx.files.internal("graphics/background2.png"));
 		map = new Texture(Gdx.files.internal("graphics/map.png"));
 		map.setFilter(TextureFilter.Linear, TextureFilter.Linear);
@@ -76,9 +76,9 @@ public class MapScreen extends StudiumScreen{
 	public void draw()
 	{
 		//Drawing background
-		batch.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		batch.draw(bg, 0, 0, 1920, 1080);
 		//Drawing map screen
-		batch.draw(map, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		batch.draw(map, 0, 0);
 		//Drawing components
 		super.draw();
 	}

@@ -11,7 +11,6 @@ public class DesktopLauncher {
 		config.width = 1366;
 		config.height = 768;
 		config.title = "Guns! Prototype";
-		config.resizable = false;
 		config.fullscreen = true;
 		new LwjglApplication(new Main(), config);
 	}
